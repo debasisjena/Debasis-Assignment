@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpendLabs Assignment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!--- Nav Bar Section -->
+      <div class="col-md-3 col-lg-2 col-sm-1 bg-light">
+        <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap col-md-3 col-lg-2 col-sm-1">
+          <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="px-3 navbar-brand" href="./index.html">
+            <span>Spend Labs</span>
+          </a>
+        </nav>
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link active" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg class="bi bi-credit-card feather" width="1em" height="1em" viewBox="0 0 16 16"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M14 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
+                    <rect width="3" height="3" x="2" y="9" rx="1" />
+                    <path d="M1 5h14v2H1z" />
+                  </svg>
+                  Cards
+                </a>
+              </li>
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg class="bi bi-receipt feather" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                    <path fill-rule="evenodd"
+                      d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                  </svg>
+                  Receipts
+                </a>
+              </li>
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg class="bi bi-bell feather" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
+                    <path fill-rule="evenodd"
+                      d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                  </svg>
+                  Notifications
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav flex-column nav-bottom">
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-file-text">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  Settings
+                </a>
+              </li>
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-file-text">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  Terms of use
+                </a>
+              </li>
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  App Tour <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav flex-column nav-logout">
+              <li class="nav-item shadow-sm bg-white mb-2">
+                <a class="nav-link" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-file-text">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  Logout
+                </a>
+              </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+      <!--- Main Section -->
+      <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <!--- Top Row (calender and Customer Info) -->
+        <div class="row mt-1">
+          <div class="col-md-4 ml-sm-auto col-lg-4 ">
+            <div class="form-group mt-1">
+              <div class='input-group date justify-content-around'>
+                <svg id="prev" class="bi bi-chevron-compact-left" width="1em" height="1em" viewBox="0 0 16 16"
+                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z" />
+                </svg>
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <div class="font-weight-bold mr-2">16th November</div>
+                    <small class="sup-small align-self-center">2019</small>
+                  </div>
+                  <small class="sup-small align-self-center">Spending summary</small>
+                </div>
+
+                <svg id="next" class="bi bi-chevron-compact-right" width="1em" height="1em" viewBox="0 0 16 16"
+                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+                </svg>
+                <svg class="bi bi-calendar4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M14 2H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+                  <path fill-rule="evenodd"
+                    d="M14 2H2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2H2z" />
+                  <path fill-rule="evenodd"
+                    d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+                </svg>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ml-sm-auto col-lg-4 ">
+
+          </div>
+          <div class="col-md-4 ml-sm-auto col-lg-4 ">
+            <div class="cust-info">
+              <small>Customer Name</small>
+            </div>
+          </div>
+        </div>
+        <!--- Summary, Pie Chart and spend Categories -->
+        <div class="row mt-1">
+          <!--- Summary Section -->
+          <div class="col-md-4 ml-sm-auto col-lg-4 ">
+            <div class="info-tile mb-3">
+              <small class="tile-header">Credit Limit</small>
+              <div class="tile-body text-data">
+                <h3>$1000</h3>
+              </div>
+            </div>
+            <div class="info-tile mb-3">
+              <small class="tile-header">Spent</small>
+              <div class="tile-body text-data">
+                <h3>$700</h3>
+              </div>
+            </div>
+            <div class="info-tile mb-3">
+              <small class="tile-header">End Balance</small>
+              <div class="tile-body text-data">
+                <h3>$300</h3>
+              </div>
+            </div>
+          </div>
+          <!--- Pie Chart -->
+          <div class="col-md-3 ml-sm-auto col-lg-3 ">
+            <div id="chartContainer" style="height: 300px; width: 100%;">
+            </div>
+          </div>
+          <!--- Different Spend Catagories -->
+          <div class="col-md-4 ml-sm-auto col-lg-5 ">
+            <div class="catagory-section">
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/travel.png" alt="Travel" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Travel</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/vehicle.png" alt="Vehicle" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Vehicle</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/hotel.jpg" alt="Hotel" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Hotel</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/entertainment.jpg" alt="Entertainment" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Entertainment</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile active">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/restaurant.png" alt="Restaurant" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Restaurant</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/retail.jpg" alt="Retail" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Retail</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/fuel.jpg" alt="Fuel" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Fuel</span>
+                  </div>
+                </span>
+              </div>
+
+              <div class="catagory-tile">
+                <span class="catagory-wrap">
+                  <div class="catagory-img shadow">
+                    <img src="./assets/others.jpg" alt="Others" style="max-width: 30px;" border="0">
+                  </div>
+                  <div class="mt-1 catagory-tile-text text-black-50">
+                    <span class="catagory-text gradient-button">Others</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--- Transactions Heading-->
+        <div class="row mt-1">
+          <h3>
+            Transactions
+          </h3>
+        </div>
+        <!--- Transactions Filter-->
+        <div class="row mt-1">
+          <div class="products-filter-container ml-5">
+            <span class="filter-header">Filter:</span>
+            <div class="products-filter sticky-on-scroll">
+              <form class="js-product-filter-form">
+                <fieldset>
+                  <button class="selected">Date</button>
+                </fieldset>
+                <fieldset>
+                  <button>Receipts</button>
+                </fieldset>
+                <fieldset>
+                  <button>Status</button>
+                </fieldset>
+                <fieldset>
+                  <button>Merchants</button>
+                </fieldset>
+                <fieldset>
+                  <button>Amount</button>
+                </fieldset>
+                <fieldset>
+                  <button>Category</button>
+                </fieldset>
+                <fieldset>
+                  <button>City</button>
+                </fieldset>
+              </form>
+              <select class="form-control">
+                <option selected="selected" value="date">Date</option>
+                <option value="Receipts">Receipts</option>
+                <option value="Status">Status</option>
+                <option value="Merchants">Merchants</option>
+                <option value="Amount">Amount</option>
+                <option value="Category">Category</option>
+                <option value="City">City</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+        <!--- Transaction Details-->
+        <div class="row mt-1">
+          <div class="transaction-list list-group">
+            <div
+              class="list-group-item list-group-item-action transaction-item d-flex align-content-center justify-content-between">
+              <div class="d-flex flex-column">
+                <h5 class="mb-1 align-self-center">
+                  <small class="align-self-center">$</small>58.50
+                </h5>
+                <small class="align-self-end pr-5">posted</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5 class="mb-1">United Airways</h5>
+                <small>San Francisco</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Category</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/travel.png" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <img class="" src="./assets/hotel.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                </div>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small class="align-self-lg-start align-self-center">Date</small>
+                <h5 class="mb-1">30th Dec</h5>
+                <small class="align-self-end">2019</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Receipt</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/retail.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <small class="align-self-center">view</small>
+                </div>
+              </div>
+            </div>
+            <div
+              class="list-group-item list-group-item-action transaction-item d-flex align-content-center justify-content-between">
+              <div class="d-flex flex-column">
+                <h5 class="mb-1 align-self-center">
+                  <small class="align-self-center">$</small>28.50
+                </h5>
+                <small class="align-self-end pr-5">posted</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5 class="mb-1">United Airways</h5>
+                <small>San Francisco</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Category</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/travel.png" alt="Vehicle" style="max-width: 30px;" border="0">
+                </div>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small class="align-self-lg-start align-self-center">Date</small>
+                <h5 class="mb-1">30th Dec</h5>
+                <small class="align-self-end">2019</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Receipt</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/retail.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <small class="align-self-center">view</small>
+                </div>
+              </div>
+            </div>
+            <div
+              class="list-group-item list-group-item-action transaction-item d-flex align-content-center justify-content-between">
+              <div class="d-flex flex-column">
+                <h5 class="mb-1 align-self-center">
+                  <small class="align-self-center">$</small>28.50
+                </h5>
+                <small class="align-self-end pr-5">posted</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5 class="mb-1">United Airways</h5>
+                <small>San Francisco</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Category</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/travel.png" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <img class="mr-1" src="./assets/hotel.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <img class="mr-1" src="./assets/entertainment.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                </div>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small class="align-self-lg-start align-self-center">Date</small>
+                <h5 class="mb-1">30th Dec</h5>
+                <small class="align-self-end">2019</small>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <small>Receipt</small>
+                <div class="catagory-img d-flex flex-lg-row flex-column mt-2">
+                  <img class="mr-1" src="./assets/retail.jpg" alt="Vehicle" style="max-width: 30px;" border="0">
+                  <small class="align-self-center">view</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      $(function () {
+        //pie chart
+        var chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          data: [{
+            type: "pie",
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+              { y: 29.45, label: "Travel" },
+              { y: 7.31, label: "Fuel" },
+              { y: 7.06, label: "Food" },
+              { y: 4.91, label: "Hotel" },
+              { y: 1.26, label: "Entertainment" },
+              { y: 50.00, label: "Not Spent" },
+            ]
+          }]
+        });
+        chart.render();
+      });
+    </script>
+  </div>
+</body>
+
+</html>
